@@ -1,0 +1,122 @@
+h1{
+    color:red;
+}
+
+table.emp{
+	table-layout:fixed; width:450px;
+}
+table.emp td {
+	overflow:hidden;
+}
+table.emp td:nth-of-type(1) {
+	width:200px;
+}
+table.emp td:nth-of-type(2) {
+	width:75px;
+}
+table.emp td:nth-of-type(3) {
+	width:175px;
+}
+
+
+
+
+.dep{
+	border: 1px solid #98bf21;
+    font-size: 5px;
+	width:160px;
+	height:20px;
+	
+}
+.boton1{
+	width:260px;
+	height:20px
+  background:#eee;
+  color:#000000;
+  text-decoration:none;
+  display:block;
+ 
+  text-align:center;
+  margin:5px auto;
+  padding:5px 5px;
+  transition:all 0.3s;
+  }
+.boton1:hover{
+  box-shadow:0px -5px 0 #088 inset;
+}
+.boton2{
+	width:160px;
+	height:20px
+  background:#eee;
+  color:#000000;
+  text-decoration:none;
+  display:block;
+ 
+  text-align:center;
+  
+  }
+.boton2:hover{
+  box-shadow:0px -5px 0 #088 inset;
+}
+table {
+		float:left;
+        
+        width:200px;
+		margin-right:1px;
+        border-collapse: collapse;
+      }
+      td, th {
+        border: 1px solid #98bf21;
+        padding: 3px 7px 2px 7px;
+     text-align:center;
+     font-size: 15px;
+      }
+      th {
+        text-align: left;
+        padding: 5px;
+        background-color: #A7C942;
+        color: #fff;
+        text-align:center;
+        font-size: 15px;
+      }
+      .alt td { background-color: #EAF2D3; }
+
+/* границы €чеек первого р€да таблицы */
+
+/* границы €чеек тела таблицы */
+/* Style the tab */
+.tab {
+    width: 910px;
+    overflow: hidden;
+    border: 1px solid #4CAF50;
+    background-color: #C8E6C9;
+    border: 65px;
+}
+
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+
+.tab button:hover {
+    background-color: #FFEB3B;
+}
+
+
+.tab button.active {
+    background-color: #4CAF50;
+    
+}
+
+
+.tabcontent {
+    display: none;
+    
+}

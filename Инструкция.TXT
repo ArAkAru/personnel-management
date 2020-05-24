@@ -1,0 +1,83 @@
+
+ввести sql команды для добавления нужных таблиц и данных:
+
+
+CREATE TABLE `hb_student_tracker`.`calendar` (
+  `id_Calendar` INT NOT NULL AUTO_INCREMENT ,
+  `day` VARCHAR(45) NULL DEFAULT 'null',
+  `month` VARCHAR(45) NULL DEFAULT 'null',
+  `year` VARCHAR(45) NULL DEFAULT 'null',
+  PRIMARY KEY (`id_Calendar`));
+
+CREATE TABLE `hb_student_tracker`.`department` (
+  `id_Department` INT NOT NULL AUTO_INCREMENT,
+  `Department_name` VARCHAR(45) NULL DEFAULT 'null',
+  PRIMARY KEY (`id_Department`));
+
+
+CREATE TABLE `hb_student_tracker`.`mark_table` (
+  `Mark_id` INT NOT NULL AUTO_INCREMENT,
+  `Mark_value` VARCHAR(45) NULL DEFAULT 'null',
+  PRIMARY KEY (`Mark_id`));
+
+
+
+CREATE TABLE `hb_student_tracker`.`employee` (
+  `id_Employee` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(45) NULL DEFAULT 'null',
+  `LastName` VARCHAR(45) NULL DEFAULT 'null',
+  `years` INT NULL,
+  `position` VARCHAR(45) NULL DEFAULT 'null',
+  `Calendar_ref_ID` INT NULL,
+  `Department_FK` INT NULL,
+  `Mark_FK` INT NULL,
+  PRIMARY KEY (`id_Employee`),
+  INDEX `FKCAl_idx` (`Calendar_ref_ID` ASC) VISIBLE,
+  INDEX `FKDEP_idx` (`Department_FK` ASC) VISIBLE,
+  INDEX `FKMARK_idx` (`Mark_FK` ASC) VISIBLE,
+  CONSTRAINT `FKCAl`
+    FOREIGN KEY (`Calendar_ref_ID`)
+    REFERENCES `hb_student_tracker`.`calendar` (`id_Calendar`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `FKDEP`
+    FOREIGN KEY (`Department_FK`)
+    REFERENCES `hb_student_tracker`.`department` (`id_Department`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `FKMARK`
+    FOREIGN KEY (`Mark_FK`)
+    REFERENCES `hb_student_tracker`.`mark_table` (`Mark_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('1', 'Я');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('2', 'Н');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('3', 'В');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('4', 'Рв');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('5', 'Б');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('6', 'К');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('7', 'ОТ');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('8', 'До');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('9', 'Хд');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('10', 'У');
+INSERT INTO `hb_student_tracker`.`mark_table` (`Mark_id`, `Mark_value`) VALUES ('11', 'Ож');
+
+
+INSERT INTO `hb_student_tracker`.`department` (`id_Department`, `Department_name`) VALUES ('1', 'DEVELOP');
+INSERT INTO `hb_student_tracker`.`department` (`id_Department`, `Department_name`) VALUES ('2', 'TESTING');
+INSERT INTO `hb_student_tracker`.`department` (`id_Department`, `Department_name`) VALUES ('3', 'HR');
+
+
+
+
+
+http://localhost:8080/arakaru/table/setup/2020 - установка года
+
+в файле config.properties установить номер месяца,который необходимо добавить,так же нужно задать настройки подключения к БД(прим.февраль-2)
+
+http://localhost:8080/arakaru/table/list - таблица,необходимо добавить нового сотрудника
+
+http://localhost:8080/arakaru/table/add/<Имя нового отдела> - так же есть возможность добавить новый отдел,он сразу же добавится в БД и в список всех отделов на странице,куда можно будет занести нового сотрудника
+
