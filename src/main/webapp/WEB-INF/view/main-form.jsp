@@ -29,7 +29,7 @@
 			
 				
 				<c:forEach var="tempDepartments" items="${departments}">
-					<form action="/arakaru/table/list"   method="post">
+					<form action="/table/list"   method="post">
 					<tr>
 					<td class="dep">
 						<p>
